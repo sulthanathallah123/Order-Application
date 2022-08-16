@@ -1,9 +1,10 @@
 .food-detail-cont {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   background-color: #f7f8fa;
+  height: 100vh;
+  overflow: hidden;
 }
 
 .detail-header {

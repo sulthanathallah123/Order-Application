@@ -5,8 +5,8 @@ import useFetch from '../../../useFetch'
 import './carousel.css'
 
 const Carousel = ({foods}) => {
-    // const url = 'http://localhost:8000/carousel'
-    // const {data:images,isPending} = useFetch(url)
+    const url = 'http://localhost:8000/carousel'
+    const {data:images,isPending} = useFetch(url)
     const [width,setWidth] = useState(0);
     const carousel = useRef();
     useEffect(()=>{
@@ -21,9 +21,9 @@ const Carousel = ({foods}) => {
                 className='inner-carousel'
                 dragConstraints={{right:0,left: -width}}
                 >
-                    {!isPending && foods.map(food => {
+                    {!isPending && images.map(image => {
                         return(
-                            <motion.div className='item' key={food}>
+                            <motion.div className='item' key={image}>
                                 <img src={image} alt=""/>
                             </motion.div>
                         )

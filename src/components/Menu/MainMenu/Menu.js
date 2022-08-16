@@ -1,19 +1,24 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import useFetch from '../../../useFetch'
 import FoodListSmall from '../Foods/FoodListSmall'
-import Carousel from '../Carousel/Carousel'
 import './menu.css'
 
 const Menu = () => {
-  const url = 'http://localhost:8000/foods'
-  const {data:foods,isPending,error} = useFetch(url)
+  //=======Ambil User Dari Local Storage ==========================
+  const [user,setUser] = useState({})
+  useEffect(()=>{
+    const user = JSON.parse(localStorage.getItem('user'))
+    if (user) {
+      setUser(user)
+    }
+  },[])
+  //=================================================================
+  console.log(user)
   return (
     <div className='Main'>
-      <p className='greet'>Hello Johnny</p>
+      <p className='greet'>Hello {user.name}</p>
       <p className='title'>Find your Food</p>
-      <input type="text" className='search' placeholder='Search..' />
-      <Carousel foods={foods}/>
-      <FoodListSmall foods={foods}/>
+      <FoodListSmall/>
     </div>
   )
 }
