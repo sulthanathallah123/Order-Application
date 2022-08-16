@@ -1,0 +1,63 @@
+.login-cont {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-cont {
+  background-color: white;
+  width: 360px;
+  height: 440px;
+  margin-top: -40px;
+  border-radius: 30px 30px 0px 0px;
+}
+
+.form-title {
+  padding: 30px 0 0 20px;
+  margin: 0;
+  font-weight: 600;
+  font-size: 24px;
+  color: #353535;
+}
+
+.form-cont article {
+  font-size: 14px;
+  color: rgba(53, 53, 53, 0.6);
+  padding: 0px 0 0 22px;
+  margin-bottom: 20px;
+}
+
+.logo-sm {
+  width: 57px;
+  flex-direction: row;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.input-txt {
+  width: 328px;
+  height: 48px;
+  border: 1px solid #5a7360;
+  border-radius: 20px;
+  margin: 10px;
+}
+
+.submit-btn {
+  background: #5a7360;
+  border-radius: 20px;
+  border: none;
+  width: 180px;
+  height: 48px;
+  color: white;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  align-self: flex-start;
+  margin: 10px 0 10px 15px;
+}

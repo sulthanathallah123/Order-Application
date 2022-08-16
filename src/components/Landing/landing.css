@@ -1,0 +1,45 @@
+body {
+  background-color: #fcecdd;
+  margin: 0;
+  padding: 0;
+}
+
+.landing-cont {
+  height: 100vh;
+  background-color: #fcecdd;
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
+}
+
+.landing-logo {
+  margin-top: 10%;
+}
+
+.landing-title {
+  font-size: 22px;
+  font-weight: 500;
+  color: #758170;
+}
+
+.landing-btn {
+  background: #5a7360;
+  border-radius: 20px;
+  width: 328px;
+  height: 48px;
+  color: white;
+  border: none;
+  font-size: 16px;
+  font-weight: 600;
+  margin-top: 320px;
+  z-index: 2;
+  cursor: pointer;
+}
+
+.landing-bg {
+  position: fixed;
+  top: 15%;
+  width: 293px;
+  height: 651px;
+}
