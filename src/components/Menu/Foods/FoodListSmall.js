@@ -28,47 +28,26 @@ const FoodListSmall = () => {
 
     //==================================================================
     //==================BUAT SEARCH======================================
-    const [searchInput,setSearchInput] = useState("")
-    const [filteredSearchResult,setFilteredSearchResult] = useState([])
-
-    const handleSearch = (searchValue) => {
-        setSearchInput(searchValue)
-        data.filter((filtered => {
-            return Object.values(filtered).join('').toLowerCase().includes(searchInput.toLowerCase())
-        }))
-        setFilteredSearchResult(filterSearch)
+    const [filter,setFilter] = useState('')
+    const searchText = (e) => {
+        setFilter(e.target.value)
     }
 
-    const filterSearch = data.filter((filtered) => {
-        return Object.values(filtered).join('').toLowerCase().includes(searchInput.toLowerCase())
+    let dataSearch = data.filter(item => {
+        return Object.keys(item).some(key => 
+            item[key].toString().toLowerCase().includes(filter.toString().toLowerCase()))
     })
-
-    useEffect(() => {
-        
-    })
-    const searchSubmit = (e) => {
-        e.preventDefault()
-        if (filteredSearchResult.length > 1) {
-            setData(filteredSearchResult)
-        }else{
-            setData(foods)
-        }
-        
-    }
     //================================================================== 
     return (
         <div className='food-list'>
         <div className="search-cont">
-            <form action="" onSubmit={searchSubmit}>
-                <input 
-                    type="text" 
-                    className='search' 
-                    placeholder='What Would You Like?'
-                    onChange={(e) => handleSearch(e.target.value)}
+            <input 
+                type="text" 
+                className='search-bar'
+                value={filter}
+                placeholder='What Would You Like ?'
+                onChange={searchText.bind(this)}
                 />
-            <input type="submit" className='search-submit' />
-
-            </form>
         </div>
         <Carousel />
         <div className="category-btn-cont">
@@ -116,7 +95,7 @@ const FoodListSmall = () => {
                 </motion.div>
         </motion.div>              
         </div>
-            {data.map((value)=>(
+            {dataSearch.map((value)=>(
             <Link key={value.id} to={`/foods/${value.id}`}>
             <div className="food-item" >
             <img src={value.image } alt="" className='food-img'/>

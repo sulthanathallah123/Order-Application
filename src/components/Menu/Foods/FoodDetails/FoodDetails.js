@@ -1,5 +1,5 @@
 import React from 'react'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import useFetch from '../../../../useFetch'
 import './fooddetails.css'
 import { useState } from 'react'
@@ -7,7 +7,9 @@ import { useState } from 'react'
 const FoodDetails = () => {
     const {id} = useParams();
     const [amount,setAmount] = useState('0')
-    const onClickHandler= () =>{
+    const navigate = useNavigate();
+    const checkOut = () => {
+        navigate('/checkout')
     }
     const {data:food,error,isPending} = useFetch('http://localhost:8000/foods/' + id)
     return (
@@ -30,7 +32,7 @@ const FoodDetails = () => {
                 <button className='plus-btn'>+</button>
             </div>
             <div className="btn-cont">
-                <button className='add-btn'>Add to Basket</button>
+                <button className='add-btn' onClick={()=> checkOut} >Add to Basket</button>
             </div>
         </div>
     )

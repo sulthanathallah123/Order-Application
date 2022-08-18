@@ -4,6 +4,7 @@ import './landing.css'
 import logo from '../../assets/icongreen.png'
 import background from '../../assets/bglanding.png'
 
+
 const Landing = () => {
     const navigate = useNavigate();
     const handleNavigate = () => {
@@ -15,6 +16,7 @@ const Landing = () => {
         <p className='landing-title'>FIRST GELATO IN CIMAHI</p>
         <button className='landing-btn' onClick={handleNavigate}>Order Now!</button>
         <img src={background} alt="background" className='landing-bg' />
+
     </div>
   )
 }

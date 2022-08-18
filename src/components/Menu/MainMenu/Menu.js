@@ -13,7 +13,6 @@ const Menu = () => {
     }
   },[])
   //=================================================================
-  console.log(user)
   return (
     <div className='Main'>
       <p className='greet'>Hello {user.name}</p>

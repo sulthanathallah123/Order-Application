@@ -1,0 +1,153 @@
+.checkout-cont {
+  display: flex;
+  flex-direction: column;
+  background: #f7f8fa;
+  height: 100vh;
+}
+
+.cont-head {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin-top: 10px;
+  background-color: white;
+}
+
+.back-btn {
+  margin: 15px;
+}
+
+.checkout-title {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.summ-cont {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  justify-content: center;
+  margin-top: 5px;
+  width: 100%;
+}
+
+.summ-ttl {
+  margin: 10px 10px 10px 10px;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  color: #353535;
+}
+
+.order-list {
+  display: flex;
+  margin: 5px 20px 0 20px;
+  justify-content: space-between;
+}
+
+.order-pic {
+  width: 62px;
+  height: 52px;
+  margin-left: -10px;
+  flex-basis: 1;
+}
+
+.order-detail {
+  flex-basis: 3;
+  margin-top: 5px;
+  margin-right: 30%;
+}
+
+.prod-name {
+  margin: 0;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 21px;
+  color: #353535;
+}
+
+.prod-price {
+  margin: 0;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 21px;
+  color: #353535;
+}
+
+.quantity {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-basis: 2;
+  margin-right: -10px;
+}
+
+.quant-btn {
+  background-color: transparent;
+  border: 1px solid #5a7360;
+  border-radius: 8px;
+  margin: 5px;
+}
+
+.price-detail {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  margin-top: 5px;
+  background-color: white;
+}
+
+.price-detail p {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 18px;
+  color: #353535;
+  margin: 5px 15px;
+}
+
+.subtotal-cont {
+  display: flex;
+  justify-content: space-between;
+}
+
+.tax-cont {
+  display: flex;
+  justify-content: space-between;
+}
+
+.total-cont {
+  background-color: white;
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.total {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 15px -10px 15px;
+}
+
+.total p {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  color: #353535;
+}
+
+.proceed-btn {
+  width: 328px;
+  height: 48px;
+  border: none;
+  background: #5a7360;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  color: #ffffff;
+  margin: 10px auto;
+}

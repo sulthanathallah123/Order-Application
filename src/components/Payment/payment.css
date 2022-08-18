@@ -1,0 +1,64 @@
+.payment-cont {
+  display: flex;
+  flex-direction: column;
+  background: #f7f8fa;
+  height: 100vh;
+}
+
+.payment-head {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin-top: 10px;
+  background-color: white;
+}
+
+.back-btn {
+  margin: 15px;
+}
+
+.payment-title {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.method-cont {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.method-list {
+  display: flex;
+  align-items: center;
+  justify-content: unset;
+  width: 100%;
+  background: white;
+  margin: 5px;
+}
+
+.method-img {
+  align-items: center;
+  width: 68px;
+  height: 50px;
+  margin: 5px;
+}
+
+.checkbox {
+  margin-left: auto;
+  width: 18px;
+  height: 18px;
+  border-radius: 15px;
+}
+
+.method-name {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 21px;
+  color: #000000;
+}
+
+.arrow {
+  margin-left: auto;
+}

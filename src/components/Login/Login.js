@@ -13,7 +13,7 @@ const Login = () => {
     const order = [{}]
     const navigate = useNavigate()
 
-    //=================Submit (POST ke API = Local Storage) ========================
+    //=================Submit (POST ke API & Local Storage) ========================
     const handleSubmit = (event) => {
         event.preventDefault();
         const userData = {name,email,tablenumber,method,order}
