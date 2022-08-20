@@ -43,6 +43,7 @@
   width: 68px;
   height: 50px;
   margin: 5px;
+  object-fit: cover;
 }
 
 .checkbox {
@@ -61,4 +62,11 @@
 
 .arrow {
   margin-left: auto;
+}
+
+.method-list div {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

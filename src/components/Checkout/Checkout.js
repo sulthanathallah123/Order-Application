@@ -9,10 +9,13 @@ const Checkout = () => {
     const handleClick = () => {
         navigate('/payment')
     }
+    const backButton = () => {
+        navigate('/menu')
+    }
     return (
         <div className='checkout-cont'>
             <div className="cont-head">
-                <img src={BackIcon} alt="back" className='back-btn'/>
+                <img src={BackIcon} alt="back" className='back-btn' onClick={()=> backButton()}/>
                 <p className="checkout-title">Checkout</p>
             </div>
             <div className="summ-cont">

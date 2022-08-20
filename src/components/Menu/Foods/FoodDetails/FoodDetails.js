@@ -11,10 +11,14 @@ const FoodDetails = () => {
     const checkOut = () => {
         navigate('/checkout')
     }
+    const closeButton = () => {
+        navigate(-1)
+    }
     const {data:food,error,isPending} = useFetch('http://localhost:8000/foods/' + id)
     return (
         <div className='food-detail-cont'>
             <div className='detail-header'>
+                <p className="close-btn" onClick={()=>closeButton()}>X</p>
                 <img src={food.image} alt="" className='food-detail-img' />
                 <div className="detail-title">
                     <p className="detail-name">{food.name}</p>
@@ -32,7 +36,7 @@ const FoodDetails = () => {
                 <button className='plus-btn'>+</button>
             </div>
             <div className="btn-cont">
-                <button className='add-btn' onClick={()=> checkOut} >Add to Basket</button>
+                <button className='add-btn' onClick={()=> checkOut()} >Add to Basket</button>
             </div>
         </div>
     )

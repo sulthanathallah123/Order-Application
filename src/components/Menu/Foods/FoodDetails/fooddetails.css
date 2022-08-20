@@ -84,7 +84,7 @@
   justify-content: center;
   width: 100%;
   background-color: white;
-  margin-top: 20px;
+  margin-top: auto;
   height: 96px;
 }
 .add-btn {
@@ -121,4 +121,12 @@
   width: 24px;
   height: 24px;
   cursor: pointer;
+}
+
+.close-btn {
+  position: absolute;
+  margin: 10px;
+  font-size: 24px;
+  color: white;
+  font-weight: 700;
 }
