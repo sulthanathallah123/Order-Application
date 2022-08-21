@@ -39,6 +39,7 @@ const FoodListSmall = () => {
     })
     //================================================================== 
     return (
+        <>
         <div className='food-list'>
         <div className="search-cont">
             <input 
@@ -96,18 +97,25 @@ const FoodListSmall = () => {
         </motion.div>              
         </div>
             {dataSearch.map((value)=>(
-            <Link key={value.id} to={`/foods/${value.id}`}>
-            <div className="food-item" >
+            <div className="food-item" key={value.id} >
+            <Link  to={`/foods/${value.id}`}>
             <img src={value.image } alt="" className='food-img'/>
+            </Link>
             <div className="food-info">
                 <p className="food-name">{value.name}</p>
                 <p className="food-desc">{value.description}</p>
-                <p className='food-price'>{`Rp.${value.price}`}</p>
+                <div className="price-cont">
+                    <p className='food-price'>{`Rp.${value.price}`}</p>
+                    <button className='add-btn-sm'>Add Item</button>
+                </div>
             </div>
             </div>
-            </Link>
         ))}
         </div>
+        <div className="cart-cont">
+            <button className='cart-btn'>Place Order - Rp81500</button>
+        </div>
+    </>
   )
 }
 
