@@ -3,18 +3,30 @@ import { useNavigate, useParams } from 'react-router-dom'
 import useFetch from '../../../../useFetch'
 import './fooddetails.css'
 import { useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { cartActions } from '../../../../store/cartSlice'
 
 const FoodDetails = () => {
     const {id} = useParams();
-    const [amount,setAmount] = useState('0')
     const navigate = useNavigate();
-    const checkOut = () => {
-        navigate('/checkout')
-    }
     const closeButton = () => {
         navigate(-1)
     }
     const {data:food,error,isPending} = useFetch('http://localhost:8000/foods/' + id)
+
+    //=======REDUX========================
+    const dispatch = useDispatch();
+    const checkOut = () => {
+        navigate('/menu')
+        dispatch(
+            cartActions.addToCart({
+                name :food.name,
+                id:food.id,
+                price:food.price,
+                image:food.image
+            })
+        )
+    } 
     return (
         <div className='food-detail-cont'>
             <div className='detail-header'>
@@ -30,11 +42,11 @@ const FoodDetails = () => {
                 <p className="notes-label">Notes</p>
                 <textarea name="notes" id="" cols="30" rows="10" placeholder='Add your Request' className='txt-area'></textarea>
             </div>
-            <div className="set-amount">
-                <button className='min-btn'>-</button>
-                1
-                <button className='plus-btn'>+</button>
-            </div>
+            {/* <div className="set-amount">
+                <button className='min-btn' onClick={() => incrementItem()}>-</button>
+                {food.quantity}
+                <button className='plus-btn' onClick={() => decrementItem()}>+</button>
+            </div> */}
             <div className="btn-cont">
                 <button className='add-btn' onClick={()=> checkOut()} >Add to Basket</button>
             </div>

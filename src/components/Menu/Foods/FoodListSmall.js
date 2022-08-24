@@ -2,10 +2,14 @@ import React, { useEffect, useState, useRef } from 'react'
 import {motion} from 'framer-motion'
 import { Link } from 'react-router-dom'
 import useFetch from '../../../useFetch'
+import { useDispatch,useSelector } from 'react-redux'
 import './foodlistsmall.css'
 import Carousel from '../Carousel/Carousel'
+import { cartActions } from '../../../store/cartSlice'
+import Cart from '../Cart/Cart'
 
 const FoodListSmall = () => {
+    //====================Fetch Data dari API==============================
     const {data:foods,isPending,error} = useFetch('http://localhost:8000/foods')
     const [data, setData] = useState(foods)
     useEffect(()=>{
@@ -17,7 +21,7 @@ const FoodListSmall = () => {
     const [width,setWidth] = useState(0);
     useEffect(()=>{
         setWidth(catCarousel.current.scrollWidth - catCarousel.current.offsetWidth)
-    })
+    },[])
 
     const filterResult = (catItem) => {
         const result = foods.filter((curDate) => {
@@ -37,7 +41,25 @@ const FoodListSmall = () => {
         return Object.keys(item).some(key => 
             item[key].toString().toLowerCase().includes(filter.toString().toLowerCase()))
     })
-    //================================================================== 
+    //==================================================================
+    //============Redux=============================================
+    let total = 0
+    const itemsList = useSelector((state) => state.cart.itemsList);
+    itemsList.forEach((item) => {
+        total += item.totalPrice;
+    });
+    const dispatch = useDispatch();
+    const addToCart = (i) => {
+        console.log(i)
+        dispatch(
+            cartActions.addToCart({
+                name :data[i].name,
+                id:data[i].id,
+                price:data[i].price,
+                image:data[i].image
+            })
+        )
+    } 
     return (
         <>
         <div className='food-list'>
@@ -96,7 +118,7 @@ const FoodListSmall = () => {
                 </motion.div>
         </motion.div>              
         </div>
-            {dataSearch.map((value)=>(
+            {dataSearch.map((value,index)=>(
             <div className="food-item" key={value.id} >
             <Link  to={`/foods/${value.id}`}>
             <img src={value.image } alt="" className='food-img'/>
@@ -106,15 +128,13 @@ const FoodListSmall = () => {
                 <p className="food-desc">{value.description}</p>
                 <div className="price-cont">
                     <p className='food-price'>{`Rp.${value.price}`}</p>
-                    <button className='add-btn-sm'>Add Item</button>
+                    <button className='add-btn-sm' onClick={() => addToCart(index)} >Add Item</button>
                 </div>
             </div>
             </div>
         ))}
         </div>
-        <div className="cart-cont">
-            <button className='cart-btn'>Place Order - Rp81500</button>
-        </div>
+        {total && <Cart total={total}/>}
     </>
   )
 }
